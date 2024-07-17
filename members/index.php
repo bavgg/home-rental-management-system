@@ -21,7 +21,7 @@
 
 <body>
 
-    <script type="module" src="index.js"></script>
+    <script type="module" src="/owners/index.js"></script>
 
 </body>
 

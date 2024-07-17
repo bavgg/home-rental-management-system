@@ -15,7 +15,7 @@ class Connection
         define('DB_HOST', 'localhost');
         define('DB_USER', 'root');
         define('DB_PASS', '');
-        define('DB_NAME', 'ims');
+        define('DB_NAME', 'house_rental');
 
         try {
             // Create connection
