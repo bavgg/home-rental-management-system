@@ -1,1 +1,1 @@
-#House Rental Management System with Vanilla JS
+# House Rental Management System Using Vanilla JS and PHP
