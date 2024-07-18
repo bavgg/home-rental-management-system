@@ -60,17 +60,9 @@ function OwnerTable() {
     `;
 }
 
-function Main() {
+export function Owners() {
   return `
-          <div id="modal-container"></div>
-          ${Navbar()}
-          <main style="display: flex;  gap: 20px; justify-content: center;">
-            <div style="margin-top: 50px;">
-                ${OwnerTable()}
-            </div>
-          </main>
+        ${OwnerTable()} 
       `;
 }
 
-const body = document.querySelector("body");
-body.innerHTML = Main();

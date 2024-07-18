@@ -57,22 +57,24 @@ function HouseTable() {
     `;
 }
 function OwnerIDOptions(data) {
-    return data.map(d => {
-        return `<option>${d.o_id}</option>`
-    }).join('');
+  return data
+    .map((d) => {
+      return `<option>${d.o_id}</option>`;
+    })
+    .join("");
 }
 function HouseModalForm() {
-    fetchOwners()
+  fetchOwners()
     .then((data) => {
       const SelectContainer = document.getElementById("select_container");
-        SelectContainer.innerHTML = OwnerIDOptions(data);
+      SelectContainer.innerHTML = OwnerIDOptions(data);
     })
     .catch((error) => {
       // Handle errors here
       console.error("Error fetching groups:", error);
     });
 
-    const style = `
+  const style = `
     <style>
 
       #cancelButton:hover {
@@ -84,7 +86,7 @@ function HouseModalForm() {
   setTimeout(() => {
     const CancelButton = document.getElementById("cancelButton");
     const HouseForm = document.querySelector("#house-form");
-    const ModalContainer = document.getElementById('modal-container');
+    const ModalContainer = document.getElementById("modal-container");
 
     CancelButton.addEventListener("click", () => {
       console.log("clicked cancel");
@@ -92,28 +94,27 @@ function HouseModalForm() {
     });
 
     HouseForm.addEventListener("submit", (event) => {
-        const image_url = document.getElementById('product-image-url').value;
-        const product_name = document.getElementById("product-name").value;
-        const description = document.getElementById("description").value;
-        const supplier = document.getElementById("supplier").value;
-        // user_id
+      const image_url = document.getElementById("product-image-url").value;
+      const product_name = document.getElementById("product-name").value;
+      const description = document.getElementById("description").value;
+      const supplier = document.getElementById("supplier").value;
+      // user_id
 
-        const imgUrlErrorContainer = document.getElementById('img-url-error');
+      const imgUrlErrorContainer = document.getElementById("img-url-error");
 
-        if(validateURL(image_url))  {
-            if(isImageUrl(image_url)) {
-                createProduct({ product_name, description, supplier, image_url });
-                ModalContainer.innerHTML = ``;
-            }else {
-                event.preventDefault();
-                imgUrlErrorContainer.textContent = 'Invalid Image URL'
-            }
-            
-        }else {
-            event.preventDefault();
-            imgUrlErrorContainer.textContent = 'Invalid Image URL'
-            // ModalContainer.innerHTML = ``;
+      if (validateURL(image_url)) {
+        if (isImageUrl(image_url)) {
+          createProduct({ product_name, description, supplier, image_url });
+          ModalContainer.innerHTML = ``;
+        } else {
+          event.preventDefault();
+          imgUrlErrorContainer.textContent = "Invalid Image URL";
         }
+      } else {
+        event.preventDefault();
+        imgUrlErrorContainer.textContent = "Invalid Image URL";
+        // ModalContainer.innerHTML = ``;
+      }
     });
   }, 0);
 
@@ -197,30 +198,22 @@ function HouseModalForm() {
 }
 
 function AddHouseBtn() {
-    setTimeout(() => {
-        const AddBtn = document.getElementById('add-btn');
+  setTimeout(() => {
+    const AddBtn = document.getElementById("add-btn");
 
-        AddBtn.addEventListener('click', () => {
-            const ModalContainer = document.getElementById('modal-container');
-            ModalContainer.innerHTML = HouseModalForm();
-        });
-    }, 0);
+    AddBtn.addEventListener("click", () => {
+      const ModalContainer = document.getElementById("modal-container");
+      ModalContainer.innerHTML = HouseModalForm();
+    });
+  }, 0);
   return `
         <button id="add-btn">Add House</button>
     `;
 }
-function Main() {
+
+export function Houses() {
   return `
-          <div id="modal-container"></div>
-          ${Navbar()}
-          <main style="display: flex;  gap: 20px; justify-content: center;">
-            <div style="margin-top: 50px;">
                 ${AddHouseBtn()}
                 ${HouseTable()}
-            </div>
-          </main>
-      `;
+  `;
 }
-
-const body = document.querySelector("body");
-body.innerHTML = Main();

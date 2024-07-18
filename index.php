@@ -1,10 +1,10 @@
 <?php
 
-// session_start();
-// if (!$_SESSION['email']) {
-//     header("location: /login");
-//     exit();
-// }
+session_start();
+if (!$_SESSION['tenant_id']) {
+    header("location: /signin");
+    exit();
+}
 ?>
 
 

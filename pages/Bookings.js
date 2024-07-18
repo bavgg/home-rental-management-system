@@ -1,4 +1,3 @@
-import { Navbar } from "../layout/Navbar.js";
 import { fetchBookings } from "/lib/data.js";
 
 function TableRow(d) {
@@ -60,17 +59,9 @@ function BookingsTable() {
     `;
 }
 
-function Main() {
+export function Bookings() {
   return `
-          <div id="modal-container"></div>
-          ${Navbar()}
-          <main style="display: flex;  gap: 20px; justify-content: center;">
-            <div style="margin-top: 50px;">
-                ${BookingsTable()}
-            </div>
-          </main>
+        ${BookingsTable()}
       `;
 }
 
-const body = document.querySelector("body");
-body.innerHTML = Main();
