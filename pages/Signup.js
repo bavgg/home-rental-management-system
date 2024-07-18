@@ -1,29 +1,29 @@
-import { Navbar } from "../layout/Navbar.js";
-import { createTenant } from '/lib/actions.js';
+
+import { registerTenant, registerOwner } from '/lib/actions.js';
 
 function OwnerInput() {
     return `
-                <input id="fullname" type="text" placeholder="Name">
-                
-                <input id="email" type="email" placeholder="Email">
-                
-                <input id="password" type="password" placeholder="Password">
-                
-                <input id="mobile" type="number" placeholder="Mobile No">
-                
-                <input id="occupation" type="text" placeholder="Occupation">
-                
-                <input id="houses" type="number" placeholder="Number of Houses">
-                
-                <input id="country" type="text" placeholder="Country">
-                
-                <input id="state" type="text" placeholder="State">
-                
-                <input id="city" type="text" placeholder="City">
-                
-                <input id="address" type="text" placeholder="Address">
-
-                <button>Sign Up</button>
+        <input id="fullname" type="text" placeholder="Full Name" required>
+        
+        <input id="email" type="email" placeholder="Email" required>
+        
+        <input id="password" type="password" placeholder="Password" required>
+        
+        <input id="mobile" type="tel" placeholder="Mobile No" required>
+        
+        <input id="occupation" type="text" placeholder="Occupation" required>
+        
+        <input id="house_no" type="number" placeholder="Number of Houses" required>
+        
+        <input id="country" type="text" placeholder="Country" required>
+        
+        <input id="state" type="text" placeholder="State" required>
+        
+        <input id="city" type="text" placeholder="City" required>
+        
+        <input id="address" type="text" placeholder="Address" required>
+        
+        <button type="submit">Sign Up</button>
     `
 }
 
@@ -73,14 +73,27 @@ function SignUpForm() {
                 const password = document.getElementById('password').value;
                 const mobile = document.getElementById('mobile').value;
                 const occupation = document.getElementById('occupation').value;
-                console.log({firstname, lastname, email, password, mobile, occupation});
-                createTenant({firstname, lastname, email, password, mobile, occupation}).then((data) => {
-                    console.log(data);
+
+                registerTenant({firstname, lastname, email, password, mobile, occupation}).then((data) => {
+                    alert(data.message);
                 });
 
             }else if (option === 'Owner') {
+                const fullname = document.getElementById('firstname').value;
+                const email = document.getElementById('lastname').value;
+                const password = document.getElementById('email').value;
+                const mobile = document.getElementById('password').value;
+                const occupation = document.getElementById('mobile').value;
+                const house_no = document.getElementById('occupation').value;
+                const country = document.getElementById('firstname').value;
+                const state = document.getElementById('lastname').value;
+                const city = document.getElementById('email').value;
+                const address = document.getElementById('password').value;
 
-            }
+                registerOwner({ fullname, email, password, mobile, occupation,house_no, country,city, state, address}).then(data => {
+                    alert(data.message);
+                });
+            }   
         });
 
     }, 0);

@@ -4,5 +4,5 @@ session_start();
 session_unset();
 session_destroy();
 
-echo
+echo json_encode(['success' => true, 'message' => 'Signout successful']);
 exit;

@@ -4,6 +4,7 @@ import { Houses } from "../pages/Houses.js";
 import { Owners } from "../pages/Owners.js";
 import { Tenants } from "../pages/Tenants.js";
 import { Bookings } from "../pages/Bookings.js";
+import { Signup } from "../pages/Signup.js";
 
 export function Navbar() {
     setTimeout(() => {
@@ -47,6 +48,10 @@ export function Navbar() {
             if(targetID.includes('signout')) {
                 PageContainer.innerHTML = Houses();
             }
+            if(targetID.includes('signup')) {
+                PageContainer.innerHTML = Signup();
+            }
+
         });
     }, 0);
   return `
@@ -76,12 +81,12 @@ export function Navbar() {
 
                   <div style="display: flex; gap: 10px; align-items: center;">
                       ${ProfileIcon()}
-                      <a href="/signin">Sign In</a>
+                      <a id="signin">Sign In</a>
                   </div>
 
                   <div style="display: flex; gap: 10px; align-items: center;">
                       ${ProfileIcon()}
-                      <a href="/signup">Sign Up</a>
+                      <a id="signup">Sign Up</a>
                   </div>
               </div>
 
