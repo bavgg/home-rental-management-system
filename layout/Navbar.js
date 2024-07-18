@@ -41,6 +41,12 @@ export function Navbar() {
             if(targetID.includes('Booking')) {
                 PageContainer.innerHTML = Bookings();
             }
+
+            // signout
+
+            if(targetID.includes('signout')) {
+                PageContainer.innerHTML = Houses();
+            }
         });
     }, 0);
   return `
@@ -65,7 +71,7 @@ export function Navbar() {
   
                   <div style="display: flex; gap: 10px; align-items: center;">
                       ${ProfileIcon()}
-                      <a>Sign Out </a>
+                      <a id="signout" href="/signout.php">Sign Out </a>
                   </div>
 
                   <div style="display: flex; gap: 10px; align-items: center;">
