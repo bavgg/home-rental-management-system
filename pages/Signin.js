@@ -19,6 +19,7 @@ function SigninForm() {
       } else if (sign_as === "Owner") {
         signinOwner({ email, pwd }).then((data) => {
           alert(data.message);
+          window.location.href = '/';
         });
       }
     });

@@ -26,10 +26,10 @@ try {
     $city = $input['city'];
     $address = $input['address'];
 
-    $query = "INSERT INTO owner (name, email, pwd, mobile_no, occupation, no_of_house, country, state, city, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO owner (name, email, pwd, mobile_no, occupation, no_of_houses, country, state, city, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
 
-    $stmt->bind_param("sssisissss", $fullname, $email, $password_hash, $mobile, $occupation, $house_no, $house_no, $country, $state, $city, $address);
+    $stmt->bind_param("sssisissss", $fullname, $email, $password_hash, $mobile, $occupation, $house_no, $country, $state, $city, $address);
 
     if ($stmt->execute()) {
 

@@ -1,8 +1,7 @@
-
-import { registerTenant, registerOwner } from '/lib/actions.js';
+import { registerTenant, registerOwner } from "/lib/actions.js";
 
 function OwnerInput() {
-    return `
+  return `
         <input id="fullname" type="text" placeholder="Full Name" required>
         
         <input id="email" type="email" placeholder="Email" required>
@@ -24,11 +23,11 @@ function OwnerInput() {
         <input id="address" type="text" placeholder="Address" required>
         
         <button type="submit">Sign Up</button>
-    `
+    `;
 }
 
 function TenantInput() {
-    return `
+  return `
                 <input id="firstname" type="text" placeholder="First Name">
                 
                 <input id="lastname" type="text" placeholder="Last Name">
@@ -42,61 +41,75 @@ function TenantInput() {
                 <input id="occupation" type="text" placeholder="Occupation">
 
                 <button>Sign Up</button>
-    `
+    `;
 }
 
 function SignUpForm() {
-    setTimeout(() => {
-        const Select = document.getElementById('select');
-        const FormContainer = document.getElementById('form-container');
+  setTimeout(() => {
+    const Select = document.getElementById("select");
+    const FormContainer = document.getElementById("form-container");
 
+    Select.addEventListener("click", (event) => {
+      const clickedEl = event.target.value;
 
-        Select.addEventListener('click', (event) => {
-            const clickedEl = event.target.value;
+      if (clickedEl === "Owner") {
+        FormContainer.innerHTML = OwnerInput();
+      } else if (clickedEl === "Tenant") {
+        FormContainer.innerHTML = TenantInput();
+      }
+    });
 
-            if(clickedEl === 'Owner') {
-                FormContainer.innerHTML = OwnerInput();
-            }else if(clickedEl === 'Tenant') {
-                FormContainer.innerHTML = TenantInput();
-            }
-            
-        })
+    FormContainer.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const option = document.getElementById("select").value;
 
-        FormContainer.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const option = document.getElementById('select').value;
+      if (option === "Tenant") {
+        const firstname = document.getElementById("firstname").value;
+        const lastname = document.getElementById("lastname").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const mobile = document.getElementById("mobile").value;
+        const occupation = document.getElementById("occupation").value;
 
-            if(option === 'Tenant'){
-                const firstname = document.getElementById('firstname').value;
-                const lastname = document.getElementById('lastname').value;
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-                const mobile = document.getElementById('mobile').value;
-                const occupation = document.getElementById('occupation').value;
-
-                registerTenant({firstname, lastname, email, password, mobile, occupation}).then((data) => {
-                    alert(data.message);
-                });
-
-            }else if (option === 'Owner') {
-                const fullname = document.getElementById('firstname').value;
-                const email = document.getElementById('lastname').value;
-                const password = document.getElementById('email').value;
-                const mobile = document.getElementById('password').value;
-                const occupation = document.getElementById('mobile').value;
-                const house_no = document.getElementById('occupation').value;
-                const country = document.getElementById('firstname').value;
-                const state = document.getElementById('lastname').value;
-                const city = document.getElementById('email').value;
-                const address = document.getElementById('password').value;
-
-                registerOwner({ fullname, email, password, mobile, occupation,house_no, country,city, state, address}).then(data => {
-                    alert(data.message);
-                });
-            }   
+        registerTenant({
+          firstname,
+          lastname,
+          email,
+          password,
+          mobile,
+          occupation,
+        }).then((data) => {
+          alert(data.message);
         });
+      } else if (option === "Owner") {
+        const fullname = document.getElementById("fullname").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const mobile = document.getElementById("mobile").value;
+        const occupation = document.getElementById("occupation").value;
+        const house_no = document.getElementById("house_no").value;
+        const country = document.getElementById("country").value;
+        const state = document.getElementById("state").value;
+        const city = document.getElementById("city").value;
+        const address = document.getElementById("address").value;
 
-    }, 0);
+        registerOwner({
+          fullname,
+          email,
+          password,
+          mobile,
+          occupation,
+          house_no,
+          country,
+          city,
+          state,
+          address,
+        }).then((data) => {
+          alert(data.message);
+        });
+      }
+    });
+  }, 0);
 
   return `
         <form id="form" style="width: 500px;">
@@ -115,7 +128,7 @@ function SignUpForm() {
 }
 
 export function Signup() {
-    return `
+  return `
         ${SignUpForm()}
-    `
+    `;
 }

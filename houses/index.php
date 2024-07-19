@@ -4,11 +4,7 @@ session_start();
 if( !(isset($_SESSION['tenant_id']) || isset($_SESSION['owner_id']) )) {
     header("location: /signin");
     exit();
-}else {
-    echo '<script>const isAuthenticated = true;</script>';
 }
-
-
 
 ?>
 
@@ -25,7 +21,7 @@ if( !(isset($_SESSION['tenant_id']) || isset($_SESSION['owner_id']) )) {
 
 <body>
 
-    <script type="module" src="index.js"></script>
+    <script type="module" src="/houses/index.js"></script>
 
 </body>
 

@@ -1,4 +1,3 @@
-import { Navbar } from "../layout/Navbar.js";
 import { fetchTenants } from "/lib/data.js";
 
 function TableRow(d) {

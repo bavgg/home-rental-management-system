@@ -1,5 +1,4 @@
-import { Navbar } from "../layout/Navbar.js";
-import { fetchOwners, fetchMembers } from "/lib/data.js";
+import { fetchMembers } from "../lib/data.js";
 
 function TableRow(d) {
   return `
