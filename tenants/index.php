@@ -4,6 +4,8 @@ session_start();
 if( !(isset($_SESSION['tenant_id']) || isset($_SESSION['owner_id']) )) {
     header("location: /signin");
     exit();
+}else {
+    echo '<script>const isAuthenticated = true;</script>';
 }
 
 ?>
