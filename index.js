@@ -1,5 +1,5 @@
 import { Navbar } from "./layout/Navbar.js";
-import { Home } from "./pages/Home.js";
+import { Home } from "./components-main/Home.js";
 
 function Main() {
   return `

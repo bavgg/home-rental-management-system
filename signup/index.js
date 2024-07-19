@@ -1,5 +1,5 @@
 import { Navbar } from "../layout/Navbar.js";
-import { Signup } from "../pages/Signup.js";
+import { Signup } from "/components-main/Signup.js";
 
 function Main() {
   return `

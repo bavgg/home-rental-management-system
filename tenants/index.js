@@ -1,5 +1,5 @@
 import { Navbar } from "../layout/Navbar.js";
-import { Tenants } from "../pages/Tenants.js";
+import { Tenants } from "../components-main/Tenants.js";
 
 function Main() {
   return `

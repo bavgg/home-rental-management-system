@@ -1,5 +1,5 @@
 import { Navbar } from "../layout/Navbar.js";
-import { Owners } from "../pages/Owners.js";
+import { Owners } from '/components-main/Owners.js'
 
 function Main() {
   return `

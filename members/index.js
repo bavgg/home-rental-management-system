@@ -1,5 +1,5 @@
 import { Navbar } from "../layout/Navbar.js";
-import { Members } from "../pages/Members.js";
+import { Members } from "/components-main/Members.js";
 
 function Main() {
   return `

@@ -10,7 +10,6 @@ if( !(isset($_SESSION['tenant_id']) || isset($_SESSION['owner_id']) )) {
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,9 +21,7 @@ if( !(isset($_SESSION['tenant_id']) || isset($_SESSION['owner_id']) )) {
 </head>
 
 <body>
-
     <script type="module" src="/tenants/index.js"></script>
-
 </body>
 
 </html>
